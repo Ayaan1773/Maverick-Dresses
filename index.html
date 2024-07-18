@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6vP0kho8N9+9hZpAd5lZp0JYKgIAZL9ty8vBX6HI+Ksn2Gp1F4RGVk/eNI3GI5s" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaverickDresses</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="menu-bar">
+            <div class="logo-container">
+                <img src="main_logo-removebg-preview.png" class="logo" alt="Maverick Dresses">
+                <div id="visitor-header">
+                    <div id="visitor-count">Visitors: <span id="count">0</span></div>
+                </div>
+
+                <script>
+                    // Retrieve visitor count from localStorage or initialize to 0
+                    var count = localStorage.getItem('visitorCount');
+                    if (!count) {
+                        count = 0;
+                        localStorage.setItem('visitorCount', count);
+                    }
+
+                    // Update visitor count in the HTML
+                    document.getElementById('count').innerHTML = count;
+
+                    // Increment visitor count on page load
+                    count++;
+                    localStorage.setItem('visitorCount', count);
+
+                </script>
+            </div>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Products</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#" data-product="all-products" class="dropdown-item">All Products</a></li>
+
+                            <li><a href="#" data-product="container-1" class="dropdown-item">Upperwear</a></li>
+                            <li><a href="#" data-product="container-2" class="dropdown-item">Lowerwear</a></li>
+                            <li><a href="#" data-product="container-3" class="dropdown-item">Others</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#aboutus">About Us</a></li>
+                <li><a href="#contactus">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="hero">
+            <div class="above-carousel-content">
+                <h2>Elevate your team's performance with our meticulously crafted, industry-specific uniforms reflecting
+                    professionalism and excellence.</h2>
+                <a href="#" class="btn btn-primary learn-more-btn">Learn More</a>
+            </div>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="slider images folder/img.1.jpeg" class="d-block w-100" alt="Slide 1" height="750px">
+            </div>
+            <div class="carousel-item">
+                <img src="slider images folder/img.3.jpeg" class="d-block w-100" alt="Slide 2" height="750px">
+            </div>
+            <div class="carousel-item">
+                <img src="slider images folder/img.2.jpeg" class="d-block w-100" alt="Slide 3" height="750px">
+            </div>
+            <div class="carousel-item">
+                <img src="slider images folder/img.7.jpeg" class="d-block w-100" alt="Slide 4" height="750px">
+            </div>
+            <div class="carousel-item">
+                <img src="slider images folder/img.4.jpeg" class="d-block w-100" alt="Slide 5" height="750px">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev" style="color: black;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuItems = document.querySelector('.menu-items');
+
+            menuToggle.addEventListener('click', function () {
+                // This will toggle the .open class on the .menu-items
+                menuItems.classList.toggle('open');
+            });
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+        // Automatically advance the carousel every 3 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            var myCarousel = document.getElementById('carouselExampleCaptions');
+            var carousel = new bootstrap.Carousel(myCarousel);
+
+            setInterval(function () {
+                carousel.next();
+            }, 3000); // Change slide every 3 seconds (3000 milliseconds)
+        });
+    </script>
+    <!-- Our Best Selling Items section -->
+    <!-- Our Best Selling Items section -->
+    <div class="best-selling-container">
+        <h2>Our Best Selling Items</h2>
+        <div class="best-selling-cards">
+            <div class="best-selling-card">
+                <img src="pt-shirt.png" alt="Best Selling Item 1">
+            </div>
+            <div class="best-selling-card">
+                <img src="pt track pant.png" alt="Best Selling Item 1">
+            </div>
+            <div class="best-selling-card">
+                <img src="PT shorts.png" alt="Best Selling Item 1">
+            </div>
+            <div class="best-selling-card">
+                <img src="pant.png" alt="Best Selling Item 1">
+            </div>
+            <div class="best-selling-card">
+                <img src="belt.png" alt="Best Selling Item 1">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function fadeElementsIntoView() {
+    const elements = document.querySelectorAll('.best-selling-card');
+    elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (rect.top < windowHeight && rect.bottom >= 0) { // If in view
+            element.classList.add('fade-up', 'slide-in');
+        } else {
+            element.classList.remove('fade-up', 'slide-in');
+            element.style.opacity = 0; // Reset opacity to 0 when out of view
+            element.style.transform = 'translateX(-200px)'; // Reset position when out of view
+        }
+    });
+}
+
+// Initial call and event listener
+fadeElementsIntoView();
+window.addEventListener('scroll', fadeElementsIntoView);
+
+    </script>
+    <div class="headings-container div">
+        <p class="headings all-products-heading">All Products</p>
+        <p class="headings upperwear-heading" style="display: none;">Upperwear</p>
+        <p class="headings lowerwear-heading" style="display: none;">Lowerwear</p>
+        <p class="headings others-heading" style="display: none;">Others</p>
+    </div>
+
+    <div class="container-1 card__container" style="display: none;">
+        <article class="card__article">
+            <img src="T-shirt.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Shirt</span>
+                <h2 class="card__title">Rs. 1499<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="pt-shirt.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">P.T-Shirt</span>
+                <h2 class="card__title">Rs. 899<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+
+        <article class="card__article">
+            <img src="hoodie.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Hoodie</span>
+                <h2 class="card__title">Rs. 2999<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="frock.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Frock</span>
+                <h2 class="card__title">Rs. 999<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="shirt-2.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Shirt</span>
+                <h2 class="card__title">Rs. 1299<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+
+        <article class="card__article">
+            <img src="frock-2.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">frock</span>
+                <h2 class="card__title">Rs. 1399<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="container-2 card__container" style="display: none;">
+        <article class="card__article">
+            <img src="PT shorts.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">P.T-Shorts</span>
+                <h2 class="card__title">Rs. 799<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="pt track pant.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Track Pant</span>
+                <h2 class="card__title">Rs. 1699<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="pant.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Pant</span>
+                <h2 class="card__title">Rs. 1499<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="pant-2.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Pant</span>
+                <h2 class="card__title">Rs. 1599<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="skirts.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Skirt</span>
+                <h2 class="card__title">Rs. 799<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="frocks.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Frock</span>
+                <h2 class="card__title">Rs. 999<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+    </div>
+
+    <div class="container-3 card__container" style="display: none;">
+        <article class="card__article">
+            <img src="ties.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Tie</span>
+                <h2 class="card__title">Rs. 299<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="socks.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Socks</span>
+                <h2 class="card__title">Rs. 399<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="belt.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Belt</span>
+                <h2 class="card__title">Rs. 999<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="belt-2.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Belt</span>
+                <h2 class="card__title">Rs. 299<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="socks-2.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Socks</span>
+                <h2 class="card__title">Rs. 399<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+        <article class="card__article">
+            <img src="tie-2.png" alt="image" class="card__img" id="fix">
+            <div class="card__data">
+                <span class="card__description">Tie</span>
+                <h2 class="card__title">Rs. 299<i class="fa-regular fa-plus"></i></h2>
+            </div>
+        </article>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Function to show all products
+            function showAllProducts() {
+                $('.card__container').show();
+                $('.headings.all-products-heading').show();
+            }
+
+            // Initially show all products
+            showAllProducts();
+
+            // Handle click on dropdown items
+            $('.dropdown-item').click(function (e) {
+                e.preventDefault();
+                var selectedProduct = $(this).data('product');
+                var subheadingText = $(this).text();
+                $('.card__container').hide();
+                $('.headings').hide();
+
+                if (selectedProduct === 'all-products') {
+                    showAllProducts(); // Show all products if "All Products" is selected
+                    $('.headings.all-products-heading').text("All Products");
+
+                    // Scroll to the headings container
+                    $('html, body').animate({
+                        scrollTop: $('.headings-container').offset().top // Scroll to the top of headings container
+                    }, 500);
+                } else {
+                    // Update the subheading text
+                    $('.headings.all-products-heading').text(subheadingText);
+                    // Show the corresponding subheading
+                    $('.headings.all-products-heading').show();
+
+                    // Show the selected product container
+                    $('.' + selectedProduct).show();
+
+                    // Scroll to the selected product container
+                    $('html, body').animate({
+                        scrollTop: $('.' + selectedProduct).offset().top - 100 // Adjusts the scroll position to be a bit above the container
+                    }, 500);
+                }
+            });
+        });
+    </script>
+    <div class="grid">
+        <h1>Our Gallery</h1>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="img-hover-zoom">
+                <img src="img1-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img2-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <!-- <div class="img-hover-zoom">
+                <img src="img3-removebg-preview.png"  alt="" style="width: 400px", height="500px">
+            </div> -->    
+            <div class="img-hover-zoom">
+                <img src="img4-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img5-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img6-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img7-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img3-removebg-preview.png"  alt="" style="width: 100%;" height="500px">
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="img-hover-zoom">
+                <img src="img8-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img9-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img10-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img11-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img12-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img13-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img14-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img26-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="img-hover-zoom">
+                <img src="img15-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img16-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img17-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img18-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img19-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img20-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <!-- <div class="img-hover-zoom">
+                <img src="img25-removebg-preview.png"  alt="" style="width: 100%;">
+            </div> -->
+        </div>
+
+        <div class="column">
+            <div class="img-hover-zoom">
+                <img src="img27-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img21-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img22-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img23-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img24-removebg-preview.png"  alt="" style="width: 100%;">
+            </div>
+            <br>
+            <br>
+            <div class="img-hover-zoom">
+                <img src="img34-removebg-preview.png"  alt="" style="width: 100%;" >
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+
+
+    <section class="about-hero">
+        <div class="about-heading">
+            <a name="aboutus">
+                <p>ABOUT US</p>
+            </a>
+        </div>
+        <div class="about-container">
+            <div class="about-hero-content">
+                <p>This is Pakistan’s First Online Uniform Supplier, where you can now place an order from the
+                    comfort of your home, with an option to customize as per your fit.</p>
+
+                <a href="#contactus"><button class="cta-button">
+                        Learn more
+                    </button></a>
+            </div>
+            <div class="about-hero-image">
+                <img src="About pic.webp">
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+        <div class="contact-content">
+            <a name="contactus">
+                <h1> Contact Us</h1>
+            </a>
+            <h4>
+                This is where you can get in touch with us....
+            </h4>
+            <p>
+                We <span> MAVERICK DRESSES </span>ensures that we dont miss any
+                compliment of additiion in our stuff , if you find any of our
+                product missing or out of stock you can simply
+                contact us about your problem
+            </p>
+        </div>
+        <div class="contact-container">
+            <div class="contactinfo">
+                <div class="contact-box">
+                    <div class="contact-icon"> <i class="fa-solid fa-location-dot"></i></div>
+                    <div class="contact-text">
+                        <a href="#sitemap">
+                            <h3>Address</h3>
+                            <p>512, Mehran Town Sector 6 A Korangi,<br> Pakistan, Karachi City,<br>Sindh 74900</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="contact-text">
+                        <a href="#">
+                            <h3>Phone</h3>
+                            <p>0310-9955999</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-text">
+                        <a href="mailto:ayaanbaig177@gmail.com">
+                            <h3>Email</h3>
+                            <p>Send email</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="contactform">
+                <form id="form">
+                    <h2>Send Feedback</h2>
+                    <Label for="name" class="error">Name </Label>
+
+                    <div class="inputbox">
+                        <input type="text" id="name" name="name" size="10" placeholder="Enter your name">
+                    </div>
+                    <Label for="email" class="error">Email </Label>
+
+                    <div class="inputbox">
+                        <input type="text" id="email" name="email" size="10" placeholder="Enter your email" required>
+                    </div>
+                    <Label for="message" class="error">Message </Label>
+
+                    <div class="inputbox" class="error">
+                        <textarea id="message" name="message" size="20" placeholder="Enter your message"
+                            required></textarea>
+                    </div>
+                    <div class="inputbox">
+                        <input type="submit" value="Send">
+
+                    </div>
+                </form>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#form').validate({
+                        rules: {
+                            name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            email: {
+                                required: true,
+                                email: true
+                            },
+                            message: {
+                                required: true,
+                                minlength: 10
+                            }
+                        },
+                        messages: {
+                            name: {
+                                required: "Please enter your name",
+                                minlength: "Name must be at least 2 characters"
+                            },
+                            email: {
+                                required: "Please enter your email",
+                                email: "Please enter a valid email address"
+                            },
+                            message: {
+                                required: "Please enter your message",
+                                minlength: "Message must be at least 10 characters"
+                            }
+                        },
+                        submitHandler: function (form) {
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-credits">
+                <p>© 2024 Maverick Dresses. All rights reserved.</p>
+            </div>
+            <a name="sitemap">
+                <div class="footer-map">
+                    <!-- Replace the src with your actual map link -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.518368216835!2d67.09634427596676!3d24.846139345829354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33b4f3560f5d1%3A0xd00a01fd0ecadaee!2sYouniform!5e0!3m2!1sen!2s!4v1712184619216!5m2!1sen!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </a>
+        </div>
+        <div class="footer-social">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <!-- Add more social icons as needed -->
+        </div>
+        </div>
+    </footer>
+
+    <div class="ticker">
+        <div id="ticker-content"></div>
+    </div>
+    <script>
+        function updateTicker() {
+            var date = new Date();
+            var dateString = date.toDateString();
+            var timeString = date.toLocaleTimeString();
+            var tickerContent = document.getElementById('ticker-content');
+            tickerContent.textContent = dateString + ' ' + timeString;
+        }
+
+        // Update ticker initially
+        updateTicker();
+
+        // Update ticker every second
+        setInterval(updateTicker, 1000);</script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight) {
+                    section.style.opacity = 1;
+                } else {
+                    section.style.opacity = 0;
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
